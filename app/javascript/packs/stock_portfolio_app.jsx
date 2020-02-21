@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
   let preloadedState = undefined;
 
+  store = configureStore(preloadedState);
+
   ReactDOM.render(
-    <Root />,
+    <Root store={store}/>,
     document.body.appendChild(document.createElement('div')),
   )
 })
