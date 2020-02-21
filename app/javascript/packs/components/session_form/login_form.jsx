@@ -49,6 +49,7 @@ class LoginForm extends React.Component {
 			<div className="session-form-container">
         {errors}
 				<form className="session-input-form">
+          <h6>Login</h6>
 					<input
 						type="text"
 						id="email"

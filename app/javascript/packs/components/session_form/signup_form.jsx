@@ -54,6 +54,7 @@ class SignupForm extends React.Component {
 			<div className="session-form-container">
         {errors}
 				<form className="session-input-form">
+          <h3>Sign Up</h3>
 					<input
 						type="text"
 						id="name"

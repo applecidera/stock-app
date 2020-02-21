@@ -1,0 +1,28 @@
+.session-input-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color: lightblue;
+  width: 360px;
+  height: 240px;
+
+  input{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 75%;
+  }
+  input:focus{
+    
+  }
+
+  button{
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 50%;
+  }
+}
