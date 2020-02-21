@@ -1,3 +1,7 @@
+$base-color: #00b0ff;
+$base-color-dark: #0081cb;
+$base-color-light: #69e2ff;
+
 .landing-page-container{
   display: grid;
   height: 100%;
@@ -25,13 +29,16 @@
 }
 
 .get-started{
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   button{
-    width: 50%;
-    height: 30px;
     margin: 10px;
+    width: 200px;
+    height: 30px;
     border-radius: 5px;
+    background-color: $base-color-light;
   }
 }

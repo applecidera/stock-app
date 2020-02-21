@@ -1,3 +1,7 @@
+$base-color: #00b0ff;
+$base-color-dark: #0081cb;
+$base-color-light: #69e2ff;
+
 .session-input-form{
   position: relative;
   display: flex;
@@ -6,7 +10,7 @@
   border: 1px solid lightgray;
   border-radius: 5px;
   padding-top: 10px;
-  background-color: lightblue;
+  background-color: $base-color;
   width: 360px;
   height: 240px;
 
@@ -20,8 +24,10 @@
   button{
     margin-top: 20px;
     border-radius: 5px;
-    width: 50%;
+    width: 200px;
     height: 30px;
+    border-radius: 5px;
+    background-color: $base-color-light;
   }
 
   .session-errors{

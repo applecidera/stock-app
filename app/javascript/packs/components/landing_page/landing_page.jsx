@@ -15,6 +15,7 @@ class LandingPage extends React.Component{
     let getStarted = (
       <div className='get-started'>
         <p>some type of text goes here that explains exactly what the application is supposed to do</p>
+        <h3>Get Started</h3>
         <button onClick={()=>this.setState({form: 'signup'})}>Sign Up</button>
         <button onClick={()=>this.setState({form: 'login'})}>Login</button>
       </div>
