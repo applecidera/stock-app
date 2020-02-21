@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :username, presence: true
+  
   validates :session_token, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } ,presence: true
   validates :password_digest, presence: true
@@ -33,5 +33,5 @@ class User < ApplicationRecord
     return nil unless user
     user.is_password?(password) ? user : nil
   end
-  
+
 end

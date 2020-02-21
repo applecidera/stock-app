@@ -7,7 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
   let preloadedState = undefined;
 
-  store = configureStore(preloadedState);
+  if (window.currentUser) {
+		preloadedState = {
+			session: {
+				currentUser: window.currentUser
+			}
+		}
+		
+		store = configureStore(preloadedState);
+		
+		delete window.currentUser;
+	} else {
+		store = configureStore();
+	}
 
   ReactDOM.render(
     <Root store={store}/>,
