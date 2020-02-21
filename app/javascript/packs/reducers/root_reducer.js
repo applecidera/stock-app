@@ -11,7 +11,6 @@ const rootReducer = combineReducers(
     session: sessionReducer,
 		// errors: errorsReducer,
     // ui: uiReducer
-    test: "it works"
 	}
 );
 

@@ -3,7 +3,6 @@ import {
 	LOGOUT_CURRENT_USER
 } from '../actions/session_actions';
 
-// default state for session, ie. not logged in
 const _nullSession = {
 	currentUser: null
 };
