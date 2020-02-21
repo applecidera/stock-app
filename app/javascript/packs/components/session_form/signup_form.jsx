@@ -52,8 +52,8 @@ class SignupForm extends React.Component {
 		
 		return (
 			<div className="session-form-container">
-        {errors}
 				<form className="session-input-form">
+          {errors}
           <h3>Sign Up</h3>
 					<input
 						type="text"

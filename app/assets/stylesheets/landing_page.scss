@@ -1,7 +1,7 @@
 .landing-page-container{
   display: grid;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   grid-template-rows: 1fr 1fr 1fr ;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 5rem;
+  padding: 5rem;  
 }
 
 .session-form-box{
@@ -22,4 +22,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.get-started{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button{
+    width: 50%;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+  }
 }
