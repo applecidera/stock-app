@@ -4,8 +4,8 @@ import {
 	CLEAR_SESSION_ERRORS
 } from '../actions/session_actions';
 
-const sessionErrorsReducer = (state = [], action) => {
-	Object.freeze(state);
+const sessionErrorsReducer = (prevState = [], action) => {
+	Object.freeze(prevState);
 	switch (action.type) {
 		case RECEIVE_SESSION_ERRORS:
 			return action.errors;
@@ -14,7 +14,7 @@ const sessionErrorsReducer = (state = [], action) => {
 		case CLEAR_SESSION_ERRORS:
 			return [];
 		default:
-			return [];
+			return prevState;
 	}
 };
 

@@ -12,14 +12,12 @@ const sessionReducer = (prevState = _nullSession, action) => {
 	let newState = {};
 	switch (action.type) {
 		case RECEIVE_CURRENT_USER:
-			newState = {
-				currentUser: action.user
-			};
+			newState = { currentUser: action.user };
 			return newState;
 		case LOGOUT_CURRENT_USER:
 			return _nullSession;
 		default:
-			return _nullSession;
+			return prevState;
 	}
 };
 
