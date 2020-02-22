@@ -80,6 +80,7 @@ class SignupForm extends React.Component {
 					<button className="signup" onClick={this.handleSubmit}>
 						Sign Up
 					</button>
+          <span className='session-back-button' onClick={()=>this.props.goBack()}>Go Back</span>
 				</form>
 			</div>
 		);

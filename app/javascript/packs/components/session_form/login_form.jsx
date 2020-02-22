@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
 			<div className="session-form-container">
         {errors}
 				<form className="session-input-form">
-          <h6>Login</h6>
+          <h3>Login</h3>
 					<input
 						type="text"
 						id="email"
@@ -65,6 +65,7 @@ class LoginForm extends React.Component {
 						placeholder="Password"
 					/>
 					<button className="signup" onClick={this.handleSubmit}>Login</button>
+          <span className='session-back-button' onClick={()=>this.props.goBack()}>Go Back</span>
 				</form>
 			</div>
 		);
