@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Dashboard from './dashboard';
+import Portfolio from './portfolio';
 import { deleteSession } from '../../actions/session_actions';
 
 const msp = (state)=>{
@@ -13,4 +13,4 @@ const mdp = (dispatch) => {
 	};
 };
 
-export default connect(null, mdp)(Dashboard);
+export default connect(null, mdp)(Portfolio);

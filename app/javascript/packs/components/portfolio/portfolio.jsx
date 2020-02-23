@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Dashboard extends React.Component{
+class Portfolio extends React.Component{
   constructor(props){
     super(props);
   }
@@ -10,11 +10,11 @@ class Dashboard extends React.Component{
 
     return (
       <div>
-        <h1>Dashboard Goes Here</h1>
+        <h1>Portfolio Goes Here</h1>
         <button onClick={()=>logout()}>Logout</button>
       </div>
     )
   }
 }
 
-export default Dashboard;
+export default Portfolio;

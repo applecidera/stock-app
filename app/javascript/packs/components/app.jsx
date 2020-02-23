@@ -3,7 +3,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/rout_utils';
 import { Route, Switch } from 'react-router-dom';
 import LandingPage from './landing_page/landing_page';
 import { deleteSession } from '../actions/session_actions';
-import Dashboard from './dashboard/dashboard_container';
+import Portfolio from './portfolio/portfolio_container';
 
 class App extends React.Component{
   render() {
@@ -11,7 +11,7 @@ class App extends React.Component{
     return (
       <>
        <Switch>
-         <ProtectedRoute path="/dashboard" component={Dashboard} />
+         <ProtectedRoute path="/portfolio" component={Portfolio} />
          <AuthRoute path="/" component={LandingPage} />
        </Switch>
       </>
