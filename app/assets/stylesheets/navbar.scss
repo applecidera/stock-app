@@ -1,0 +1,49 @@
+$base-color: #00b0ff;
+$base-color-dark: #0081cb;
+$base-color-light: #69e2ff;
+
+.navbar-logo{
+  height: 4rem;
+  width: 4rem;
+  background-image: asset-data-url('stock_tickr_logo.png');
+  background-size: contain;
+  margin-left: 1rem;
+}
+
+.navbar-container{
+  width: 100%;
+  height: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  background-color: $base-color;
+}
+
+.logout-box{
+  grid-column: 3/4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logout-button{
+  width: 4rem;
+  height: 2rem;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.toggle-box{
+  grid-column: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-button{
+  border-radius: 5px;
+  width: 200px;
+  height: 2rem;
+}

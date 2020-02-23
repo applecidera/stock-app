@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../navbar/navbar_container'
 
 class Portfolio extends React.Component{
   constructor(props){
@@ -9,9 +10,9 @@ class Portfolio extends React.Component{
     const logout = this.props.logout;
 
     return (
-      <div>
+      <div className="portfolio-container">
+        <Navbar selected={'portfolio'}/>
         <h1>Portfolio Goes Here</h1>
-        <button onClick={()=>logout()}>Logout</button>
       </div>
     )
   }
