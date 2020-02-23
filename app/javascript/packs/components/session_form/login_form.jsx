@@ -24,6 +24,7 @@ class LoginForm extends React.Component {
 		const errors=()=>(this.setState({
 			errors: "Invalid email or password."
 		}))
+		console.log(this.props);
 		this.props
 			.createSession(this.state)
 			.then(() => this.props.history.push('/dashboard'));
