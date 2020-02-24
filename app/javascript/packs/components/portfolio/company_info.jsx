@@ -30,7 +30,7 @@ class CompanyInfo extends React.Component{
     let data = (
       <ul className="ticker-info-list">
         {keys.map((key, idx)=>{
-          if ( importantValues[idx] ){
+          if ( importantValues[idx] && values[idx] ){
             return (
             <li className='ticker-info-elements' key={idx}>
               <label>{keys[idx].charAt(0).toUpperCase() + keys[idx].slice(1)}:</label><span>{values[idx]}</span>

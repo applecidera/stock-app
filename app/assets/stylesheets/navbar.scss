@@ -59,8 +59,23 @@ $base-color-light: #69e2ff;
   width: 200px;
   border-radius: 5px;
   z-index: -1;
-  transition: transform 1s ease;
-  // transform: translateX(100%);
+}
+.left{
+  transform: translateX(0);
+  animation: toggle-slide 0.5s ease forwards;
+}
+.right{
+  transform: translateX(100%);
+  animation: toggle-slide 0.5s ease reverse;
+}
+
+@keyframes toggle-slide{
+from{
+  transform: translateX(100%);
+}
+to{
+  transform: translateX(0%);
+}
 }
 
 .toggle-button{

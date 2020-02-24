@@ -7,10 +7,11 @@ class Navbar extends React.Component{
 
   render() {
     let {selected} = this.props;
+    let highlighted = (selected === 'portfolio') ? 'toggle-box-background left' : 'toggle-box-background right';
     let toggle = (
     <div className="toggle-box">
       <div className='toggle-container'>
-        <div className="toggle-box-background" />
+        <div className={highlighted} />
         <button className="toggle-button">Portfolio</button>
         <button className="toggle-button">Transactions</button>
       </div>

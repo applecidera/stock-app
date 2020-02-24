@@ -18,8 +18,6 @@ class TickerLookup extends React.Component{
       this.props.lookupTicker(this.state.queryString);
     }
     // TODO parse queryString and choose first match
-    // lookupTicker(this.state.queryString).then((data) => console.log(data));
-    // TODO mdp a dispatch with .then data
   }
 
   updateQuery(event){
