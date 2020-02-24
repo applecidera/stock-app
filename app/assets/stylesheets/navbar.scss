@@ -50,20 +50,25 @@ $base-color-light: #69e2ff;
   overflow: hidden;
 }
 
-// .toggle-box-background{
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   background-color: $base-color-dark;
-//   height: 32px;
-//   width: 200px;
-//   border-radius: 5px;
-//   transition: all 1s ease;
-// }
+.toggle-box-background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $base-color-dark;
+  height: 32px;
+  width: 200px;
+  border-radius: 5px;
+  z-index: -1;
+  transition: transform 1s ease;
+  // transform: translateX(100%);
+}
 
 .toggle-button{
   border-radius: 5px;
   width: 200px;
   height: 2rem;
   background-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  border-color: $base-color-dark;
 }
