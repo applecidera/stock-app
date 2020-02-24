@@ -21,8 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		store = configureStore();
 	}
 
+	let div = document.createElement('div');
+	div.setAttribute('class','root');
+
   ReactDOM.render(
     <Root store={store}/>,
-    document.body.appendChild(document.createElement('div')),
+    document.body.appendChild(div)
   )
 })

@@ -9,8 +9,11 @@ class Navbar extends React.Component{
     let {selected} = this.props;
     let toggle = (
     <div className="toggle-box">
-      <button className="toggle-button">Portfolio</button>
-      <button className="toggle-button">Transactions</button>
+      <div className='toggle-container'>
+        <div className="toggle-box-background" />
+        <button className="toggle-button">Portfolio</button>
+        <button className="toggle-button">Transactions</button>
+      </div>
     </div>
     );
 

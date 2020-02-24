@@ -12,7 +12,14 @@ class Portfolio extends React.Component{
     return (
       <div className="portfolio-container">
         <Navbar selected={'portfolio'}/>
-        <h1>Portfolio Goes Here</h1>
+        <div className='porfolio-box'>
+          <div className='portfolio-left-side'>
+            <h1>Portfolio Goes Here</h1>
+          </div>
+          <div className='portfolio-right-side'>
+            <h1>Buying Stocks Goes Here</h1>
+          </div>
+        </div>
       </div>
     )
   }
