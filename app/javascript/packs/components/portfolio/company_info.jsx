@@ -1,49 +1,51 @@
 import React from 'react'
+import {numberWithCommas} from '../../utils/number_conversion_utils'
 
 class CompanyInfo extends React.Component{
   constructor(props){
     super(props);
+    this.state={
+      quantity: 0
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleInput(type) {
+		return (e) => {
+			this.setState({
+				[type]: e.target.value
+			});
+		};
+	}
+
+  handleSubmit(e){
+    e.preventDefault();
+    console.log('handling it boss');
   }
 
   render() {
     if (!this.props.tickerData) return null;
 
     let tickerData = this.props.tickerData;
-    let keys = Object.keys(tickerData);
-    let values = Object.values(tickerData);
-    let importantValues = {
-      0: true,
-      4: true,
-      6: true,
-      8: true,
-      9: true,
-      10: true,
-      11: true,
-      12: true,
-      28: true,
-      29 :true
-    }
-    keys[11] = "CurrentStatus";
-    keys[29] = "PercentChange";
-    values[29] = (values[29] * 100).toFixed(2).toString() + '%';
-
-    let data = (
-      <ul className="ticker-info-list">
-        {keys.map((key, idx)=>{
-          if ( importantValues[idx] && values[idx] ){
-            return (
-            <li className='ticker-info-elements' key={idx}>
-              <label>{keys[idx].charAt(0).toUpperCase() + keys[idx].slice(1)}:</label><span>{values[idx]}</span>
-            </li>)
-          }
-        })}
-      </ul>
-    )
+    let color = ((tickerData['change'] > 0) ? 'green' : 'red') || 'grey';
+    let currentPrice = numberWithCommas(tickerData['latestPrice'].toFixed(2));
+    let subTotal = (this.state.quantity > 0) ? numberWithCommas((parseInt(this.state.quantity) * tickerData['latestPrice']).toFixed(2)) : 0.00;
     
     return (
       <div className="company-info-container">
         <h4>{tickerData['companyName']}</h4>
-        {data}
+        <div>{tickerData['primaryExchange']}: {tickerData['symbol']}</div>
+        <div><span>{currentPrice}</span> USD <strong className={color}>{tickerData['change']} ({tickerData['changePercent']})</strong></div>
+        <div>{tickerData['latestTime']}</div>
+        <form className='purchase-option'>
+          <label htmlfor='quantity'>Quantity</label>
+          <input id='quantity' type="number" 
+            value={this.state.quantity}
+						onChange={this.handleInput('quantity')}
+						placeholder={0} />
+          ${subTotal}
+          <button onClick={this.handleSubmit}>Buy</button>
+        </form>
       </div>
     )
   }

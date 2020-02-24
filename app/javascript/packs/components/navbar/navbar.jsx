@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Navbar extends React.Component{
   constructor(props) {
@@ -12,8 +13,8 @@ class Navbar extends React.Component{
     <div className="toggle-box">
       <div className='toggle-container'>
         <div className={highlighted} />
-        <button className="toggle-button">Portfolio</button>
-        <button className="toggle-button">Transactions</button>
+        <Link to="/portfolio"><button className="toggle-button">Portfolio</button></Link>
+        <Link to="/transactions"><button className="toggle-button">Transactions</button></Link>
       </div>
     </div>
     );

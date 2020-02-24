@@ -62,11 +62,11 @@ $base-color-light: #69e2ff;
 }
 .left{
   transform: translateX(0);
-  animation: toggle-slide 0.5s ease forwards;
+  animation: toggle-slide 0.5s ease-in-out forwards;
 }
 .right{
   transform: translateX(100%);
-  animation: toggle-slide 0.5s ease reverse;
+  animation: toggle-slide 0.5s ease-in-out reverse;
 }
 
 @keyframes toggle-slide{
