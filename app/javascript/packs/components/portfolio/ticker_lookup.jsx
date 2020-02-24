@@ -1,4 +1,5 @@
 import React from 'react'
+import {lookupTicker} from '../../utils/iex_api_utils'
 
 class TickerLookup extends React.Component{
   constructor(props){
@@ -7,7 +8,7 @@ class TickerLookup extends React.Component{
   };
 
   handleSubmit() {
-    console.log('handling it');
+    lookupTicker().then((data) => console.log(data));
   };
 
   render() {
