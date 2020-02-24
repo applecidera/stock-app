@@ -36,6 +36,7 @@ $base-color-light: #69e2ff;
   h3{
     margin-top: 50px;
   }
+  animation: phase-in 1s ease forwards;
 }
 
 .ticker-lookup-form{
@@ -59,6 +60,7 @@ $base-color-light: #69e2ff;
     background-color: $base-color;
     border-color: $base-color;
   }
+  animation: phase-in 1s ease forwards;
 }
 
 .company-info-container{
@@ -82,10 +84,10 @@ $base-color-light: #69e2ff;
     font-size: 24px;
     font-weight: bold;
   }
-  animation: open-up 1s ease forwards;
+  animation: phase-in 1s ease forwards;
 }
 
-@keyframes open-up{
+@keyframes phase-in{
   from{
     opacity: 0;
   }
@@ -112,6 +114,11 @@ $base-color-light: #69e2ff;
   margin-top: 40px;
   input{
     width: 50px;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  span{
+    width: 80px;
   }
   button{
     border-radius: 5px;

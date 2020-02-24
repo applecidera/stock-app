@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import TickerLookup from './ticker_lookup_container'
 import CompanyInfo from './company_info_container'
+import {numberWithCommas} from '../../utils/number_conversion_utils'
 
 class Portfolio extends React.Component{
   constructor(props){
@@ -12,7 +13,7 @@ class Portfolio extends React.Component{
   }
 
   render() {
-    const logout = this.props.logout;
+    let {logout} = this.props;
 
     return (
       <div className="portfolio-container">
@@ -22,7 +23,7 @@ class Portfolio extends React.Component{
             <h1>Portfolio Goes Here</h1>
           </div>
           <div className='portfolio-right-side'>
-            <h3>Liquid Assets: ${this.state.liquid_assets}</h3>
+            <h3>Liquid Assets (Cash): ${numberWithCommas(this.state.liquid_assets)}</h3>
             <TickerLookup />
             <CompanyInfo />
           </div>
