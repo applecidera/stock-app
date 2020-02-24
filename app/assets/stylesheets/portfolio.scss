@@ -34,7 +34,7 @@ $base-color-light: #69e2ff;
   justify-content: center;
   align-items: center;
   h3{
-    margin-top: 100px;
+    margin-top: 50px;
   }
 }
 
@@ -45,7 +45,7 @@ $base-color-light: #69e2ff;
   align-items: center;
   border-radius: 5px;
   border: 1px solid $base-color-dark;
-  background-color: lightgray;
+  // background-color: lightgray;
   width: 360px;
   height: 180px;
   // margin-top: 100px;
@@ -61,3 +61,24 @@ $base-color-light: #69e2ff;
   }
 }
 
+.company-info-container{
+  border: 1px solid $base-color-dark;
+  width: 360px;
+  height: auto;
+  margin-top: 50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticker-info-list{
+  width: 100%;
+}
+
+.ticker-info-elements{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 1rem;
+}

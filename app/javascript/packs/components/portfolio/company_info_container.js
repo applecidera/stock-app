@@ -3,6 +3,7 @@ import CompanyInfo from './company_info';
 
 const msp = (state)=>{
   return {
+    tickerData: state.entities.ticker.tickerData
 	}
 }
 
@@ -11,4 +12,4 @@ const mdp = (dispatch) => {
 	};
 };
 
-export default connect(null, null)(CompanyInfo);
+export default connect(msp, null)(CompanyInfo);
