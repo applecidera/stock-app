@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TickerLookup from './ticker_lookup';
-// import {lookupTicker} from '../../utils/iex_api_utils'
+import { fetchTicker } from '../../actions/ticker_actions'
 
 const msp = (state)=>{
   return {
@@ -9,8 +9,8 @@ const msp = (state)=>{
 
 const mdp = (dispatch) => {
 	return {
-    // lookupTicker: lookupTicker
+    lookupTicker: (ticker) => dispatch(fetchTicker(ticker))
 	};
 };
 
-export default connect(null, null)(TickerLookup);
+export default connect(null, mdp)(TickerLookup);
