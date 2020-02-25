@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import TickerLookup from './ticker_lookup_container'
 import CompanyInfo from './company_info_container'
+import Equity from './equity_container'
 import {numberWithCommas} from '../../utils/number_conversion_utils'
 
 class Portfolio extends React.Component{
@@ -20,7 +21,7 @@ class Portfolio extends React.Component{
         <Navbar selected={'portfolio'}/>
         <div className='porfolio-box'>
           <div className='portfolio-left-side'>
-            <h1>Portfolio Goes Here</h1>
+            <Equity />
           </div>
           <div className='portfolio-right-side'>
             <h3>Liquid Assets (Cash): ${numberWithCommas(this.state.liquid_assets)}</h3>
