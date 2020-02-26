@@ -12,22 +12,37 @@ class StockTable extends React.Component{
   }
 
   componentDidUpdate(prevProps, prevState, snapshot){
-
-    if (prevState.netWorth !== this.state.netWorth){
-      // this.netWorth();
+    if (this.netWorth() !== this.state.netWorth){
+      debugger;
+      this.setState({netWorth: this.netWorth()})
     }
   }
-  
 
-  netWorth(netWorth){
-    if (this.state.netWorth !== netWorth){
-      this.setState({netWorth: netWorth})
-    }
+  netWorth(){
+    let netWorth = 0;
+    // let stockHash = {};
+    // let quantityHash = {};
+
+    this.state.transactions.forEach( (trade)=> {
+      let price = trade.price;
+      let quantity = trade.quantity;
+
+      // stockHash[trade.ticker] = (stockHash[trade.ticker]) ?
+      // stockHash[trade.ticker] + (price*quantity) : 0 + (price*quantity);
+
+      // quantityHash[trade.ticker] = (quantityHash[trade.ticker]) ?
+      // quantityHash[trade.ticker] + (quantity) : 0 + (quantity);
+      
+      netWorth += (price*quantity);
+    })
+
+    return netWorth;
   }
   
   render() {
-    let netWorth = 0;
+    let netWorth = this.state.netWorth;
     let stockHash = {};
+    let quantityHash = {};
 
     this.state.transactions.forEach( (trade)=> {
       let price = trade.price;
@@ -35,17 +50,20 @@ class StockTable extends React.Component{
 
       stockHash[trade.ticker] = (stockHash[trade.ticker]) ?
       stockHash[trade.ticker] + (price*quantity) : 0 + (price*quantity);
+
+      quantityHash[trade.ticker] = (quantityHash[trade.ticker]) ?
+      quantityHash[trade.ticker] + (quantity) : 0 + (quantity);
       
-      netWorth += (price*quantity);
+      // netWorth += (price*quantity);
     })
 
 
-    let transactions = Object.values(this.props.trades);
+    let transactions = Object.keys(stockHash);
     
     let trades = (transactions.length) ? (
       <>
-        {transactions.map((trade, i) => (
-          <li className="portfolio-trade-elements" key={`trade-${i}`}><label>{trade.ticker}</label><span>{trade.quantity}</span><span>${trade.price}</span></li>
+        {transactions.map((ticker, i) => (
+          <li className="portfolio-trade-elements" key={`trade-${i}`}><label>{ticker}</label><span>{quantityHash[ticker]}</span><span>${numberWithCommas(stockHash[ticker].toFixed(2))}</span></li>
         ))}
       </>
     ) : null;
