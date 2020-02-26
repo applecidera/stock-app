@@ -5,29 +5,51 @@ class CompanyInfo extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      quantity: 0
+      quantity: 0,
+      price: null,
+      subTotal: 0,
+      errors: null
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearErrors = this.clearErrors.bind(this);
   }
 
-  handleInput(type) {
+  handleInput(currentPrice) {
 		return (e) => {
       (e.target.value > 0) ?
 			this.setState({
-				[type]: e.target.value
+        quantity: parseInt(e.target.value),
+        price: currentPrice,
+        subTotal: (parseInt(e.target.value) * currentPrice),
+        errors: null
       }) : 
       this.setState({
-				[type]: 0
+        quantity: 0,
+        price: null,
+        subTotal: 0,
+        errors: null
 			});
 		};
 	}
 
   handleSubmit(e){
     e.preventDefault();
-    let quantity = this.state.quantity
-    (quantity > 0) ?
-    console.log('handling it boss') : 
-    console.log("can't buy 0 stocks")
+    let quantity = parseInt(this.state.quantity);
+    let balance = parseInt(this.props.balance);
+    let price = parseInt(this.state.price);
+    let subTotal = parseInt(this.state.subTotal);
+    
+    if (balance < subTotal) {
+      this.setState({ errors: "Insufficient liquid assets"})
+    } else if (quantity > 0) {
+      console.log('handling it boss') 
+    } else {
+      this.setState({ errors: "Please enter a quantity of 1 or more"})
+    }
+  }
+
+  clearErrors(){
+    this.setState({ errors: null});
   }
 
   render() {
@@ -35,6 +57,7 @@ class CompanyInfo extends React.Component{
 
     let tickerData = this.props.tickerData;
     let color = ((tickerData['change'] > 0) ? 'green' : 'red') || 'grey';
+    let rawCurrentPrice = parseInt(tickerData['latestPrice']);
     let currentPrice = numberWithCommas(tickerData['latestPrice'].toFixed(2));
     let subTotal = (this.state.quantity > 0) ? numberWithCommas((parseInt(this.state.quantity) * tickerData['latestPrice']).toFixed(2)) : 0.00;
     let percentChange = (tickerData['changePercent'] * 100).toFixed(2);
@@ -44,15 +67,23 @@ class CompanyInfo extends React.Component{
         <label htmlFor='quantity'>Quantity</label>
         <input id='quantity' type="number" 
           value={this.state.quantity}
-          onChange={this.handleInput('quantity')}
+          onChange={this.handleInput(rawCurrentPrice)}
+          onBlur={()=>this.clearErrors()}
           placeholder={0} />
         <span>${subTotal}</span>
         <button onClick={this.handleSubmit}>Buy</button>
       </form>
     ) : null;
+
+    let errors = this.state.errors ? (
+      <div className="company-ticker-errors">
+        <h6>{this.state.errors}</h6>
+      </div>
+    ) : null;
     
     return (
       <div className="company-info-container">
+        {errors}
         <h4>{tickerData['companyName']}</h4>
         <div>{tickerData['primaryExchange']}: {tickerData['symbol']}</div>
         <div><span>{currentPrice}</span> USD <strong className={color}>{tickerData['change']} ({percentChange}%)</strong></div>

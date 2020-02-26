@@ -3,7 +3,8 @@ import CompanyInfo from './company_info';
 
 const msp = (state)=>{
   return {
-    tickerData: state.entities.ticker.tickerData
+		tickerData: state.entities.ticker.tickerData,
+		balance: state.session.currentUser.balance
 	}
 }
 

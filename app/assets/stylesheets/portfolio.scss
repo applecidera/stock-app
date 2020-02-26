@@ -64,6 +64,7 @@ $base-color-light: #69e2ff;
 }
 
 .company-info-container{
+  position: relative;
   border: 1px solid $base-color-dark;
   width: 360px;
   height: auto;
@@ -167,4 +168,16 @@ $base-color-light: #69e2ff;
   font-weight: bold;
   font-size: 18px;
   margin-left: 0;
+}
+
+.company-ticker-errors{
+  position: absolute;
+  bottom: -50px;
+  color: red;
+  animation: phase-in 1s ease;
+}
+
+@keyframes error{
+  from{}
+  to{}
 }
