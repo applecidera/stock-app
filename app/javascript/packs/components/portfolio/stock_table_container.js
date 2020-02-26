@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Equity from './equity';
+import StockTable from './stock_table';
 
 const msp = (state)=>{
   return {
@@ -11,4 +11,4 @@ const mdp = (dispatch) => {
 	};
 };
 
-export default connect(null, null)(Equity);
+export default connect(null, null)(StockTable);

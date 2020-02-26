@@ -1,7 +1,7 @@
 import React from 'react'
 import {numberWithCommas} from '../../utils/number_conversion_utils'
 
-class Equity extends React.Component{
+class StockTable extends React.Component{
   constructor(props){
     super(props);
     this.state={
@@ -13,11 +13,11 @@ class Equity extends React.Component{
     let netWorth = numberWithCommas(this.state.netWorth);
 
     return (
-      <div className="equity-container">
+      <div className="stock-table-container">
         <div className="networth"><span>Portfolio</span><span>Net Worth: ${netWorth}</span></div>
         <div className="stock-container">
           <ul>
-            <li className="portfolio-stock-elements" key='top-line'><label>Stock</label><span>Quantity</span></li>
+            <li className="portfolio-stock-elements" key='top-line'><label>Stock</label><span>Quantity</span><span>Entry Price</span></li>
           </ul>
         </div>
       </div>
@@ -25,4 +25,4 @@ class Equity extends React.Component{
   }
 }
 
-export default Equity;
+export default StockTable;

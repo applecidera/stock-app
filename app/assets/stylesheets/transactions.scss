@@ -1,0 +1,84 @@
+$base-color: #00b0ff;
+$base-color-dark: #0081cb;
+$base-color-light: #69e2ff;
+@keyframes phase-in{
+  from  {opacity: 0;}
+  to    {opacity: 1;}
+}
+
+.transaction-container{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 4rem 1fr;
+}
+
+.transaction-box{
+  width: 100%;
+  height: 100%;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.transaction-left-side{
+  width: 100%;
+  height: 100%;
+  grid-column: 1/2;
+  display: flex;
+  justify-content: center;
+}
+
+.transaction-right-side{
+  width: 100%;
+  height: 100%;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3{
+    margin-top: 50px;
+  }
+  animation: phase-in 1s ease forwards;
+}
+
+.transactions-table-container{
+  width: 480px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .networth{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  animation: phase-in 1s ease forwards;
+}
+
+.transaction-elements-container{
+  width: 480px;
+  min-height: 480px;
+  border: 1px solid $base-color-dark;
+  border-radius: 5px;
+  ul{
+    // margin: 0;
+    list-style: none;
+    margin-left: -40px;
+  }
+}
+
+.transaction-elements{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 0;
+}
