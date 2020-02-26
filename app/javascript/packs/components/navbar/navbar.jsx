@@ -6,6 +6,10 @@ class Navbar extends React.Component{
     super(props);
   }
 
+  componentDidMount(){
+    this.props.fetchAllTrades();
+  }
+
   render() {
     let {selected} = this.props;
     let highlighted = (selected === 'portfolio') ? 'toggle-box-background left' : 'toggle-box-background right';

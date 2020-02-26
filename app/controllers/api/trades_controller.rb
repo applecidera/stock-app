@@ -1,7 +1,9 @@
-class TradesController < ApplicationController
+class Api::TradesController < ApplicationController
 
   def create
     @trade = Trade.new(trade_params)
+    @trade.purchase_date = Date.new
+    debugger
     if @trade.save
       render 'api/trades/show'
     else
@@ -30,7 +32,7 @@ class TradesController < ApplicationController
   private
 
   def trade_params
-    params.require(:trade).permit(:date, :quantity, :price)
+    params.require(:trade).permit(:quantity, :price, :ticker)
   end
 
 end

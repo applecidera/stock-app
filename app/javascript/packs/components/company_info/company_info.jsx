@@ -34,15 +34,21 @@ class CompanyInfo extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    let quantity = parseInt(this.state.quantity);
-    let balance = parseInt(this.props.balance);
-    let price = parseInt(this.state.price);
-    let subTotal = parseInt(this.state.subTotal);
-    
+    let quantity = this.state.quantity;
+    let balance = this.props.balance;
+    let price = this.state.price;
+    let subTotal = this.state.subTotal;
+    let ticker = this.props.tickerData.symbol;
+    let trade = {
+      quantity: quantity,
+      price: price,
+      ticker: ticker
+    }
+    debugger
     if (balance < subTotal) {
       this.setState({ errors: "Insufficient liquid assets"})
     } else if (quantity > 0) {
-      console.log('handling it boss') 
+      this.props.makeTrade(trade);
     } else {
       this.setState({ errors: "Please enter a quantity of 1 or more"})
     }

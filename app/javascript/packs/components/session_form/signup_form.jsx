@@ -33,7 +33,7 @@ class SignupForm extends React.Component {
 		} else if (this.state.password === '') {
 			this.setState({ errors: 'Please enter a password!' });
 		} else {
-			this.props.createUser(this.state).then(() => this.props.history.push('/portfolio'));
+			this.props.createUser(this.state);
 		}
 		
 	}

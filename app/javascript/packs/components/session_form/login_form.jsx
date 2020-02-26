@@ -26,8 +26,7 @@ class LoginForm extends React.Component {
 		}))
 		console.log(this.props);
 		this.props
-			.createSession(this.state)
-			.then(() => this.props.history.push('/portfolio'));
+			.createSession(this.state);
 	}
 
 	componentDidMount(){

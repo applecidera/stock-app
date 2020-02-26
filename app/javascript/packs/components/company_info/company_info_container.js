@@ -1,5 +1,6 @@
-import { connect } from 'react-redux';
-import CompanyInfo from './company_info';
+import { connect } from 'react-redux'
+import CompanyInfo from './company_info'
+import {makeTrade} from '../../actions/trade_actions'
 
 const msp = (state)=>{
   return {
@@ -10,7 +11,8 @@ const msp = (state)=>{
 
 const mdp = (dispatch) => {
 	return {
+		makeTrade: (trade) => dispatch(makeTrade(trade))
 	};
 };
 
-export default connect(msp, null)(CompanyInfo);
+export default connect(msp, mdp)(CompanyInfo);
