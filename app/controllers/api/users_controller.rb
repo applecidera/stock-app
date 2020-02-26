@@ -11,19 +11,21 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def show
+  def update
     @user = User.find(params[:id])
-    if @user
+    new_balance = @user.balance + user_params['balance']
+    @user.balance = new_balance
+    if (@user && @user.save)
       render :show
     else
-      render json: ["User does not exist"], status: 404
+      render :show
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :email)
+    params.require(:user).permit(:name, :password, :email, :balance)
   end
-  
+
 end

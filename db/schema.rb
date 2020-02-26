@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_051554) do
     t.datetime "purchase_date", null: false
     t.integer "quantity", null: false
     t.integer "price", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ticker"

@@ -4,6 +4,7 @@ class CreateTrades < ActiveRecord::Migration[6.0]
       t.datetime :purchase_date, null: false
       t.integer :quantity, null: false
       t.integer :price, null: false
+      t.integer :user_id, null: false
       t.timestamps
     end
   end

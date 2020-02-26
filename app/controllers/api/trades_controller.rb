@@ -3,7 +3,7 @@ class Api::TradesController < ApplicationController
   def create
     @trade = Trade.new(trade_params)
     @trade.purchase_date = Date.new
-    debugger
+    @post.user_id = current_user.id
     if @trade.save
       render 'api/trades/show'
     else
@@ -21,12 +21,7 @@ class Api::TradesController < ApplicationController
   end
 
   def index
-    @trades = Trade.all
-    if @trades
-      render :index
-    else
-      render json: ["no trades exist"], status: 404
-    end
+    @trades = Trade.includes(:user)
   end
 
   private
