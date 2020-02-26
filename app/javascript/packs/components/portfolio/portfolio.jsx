@@ -9,13 +9,19 @@ class Portfolio extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      liquid_assets: 5000
+      liquid_assets: this.props.balance || 0
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot){
+    if (this.state.liquid_assets && (parseInt(this.props.balance) !== parseInt(this.state.liquid_assets))){
+      this.setState({ liquid_assets: this.props.balance});
     }
   }
 
   render() {
     let {logout} = this.props;
-
+    
     return (
       <div className="portfolio-container">
         <Navbar selected={'portfolio'}/>

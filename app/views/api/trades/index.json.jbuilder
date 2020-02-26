@@ -1,0 +1,1 @@
+json.partial! "api/trades/trade", trades: @trades

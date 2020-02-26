@@ -1,0 +1,1 @@
+json.extract! trade, :date, :quantity, :price

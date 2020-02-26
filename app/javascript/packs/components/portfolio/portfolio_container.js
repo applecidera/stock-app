@@ -4,6 +4,8 @@ import { deleteSession } from '../../actions/session_actions';
 
 const msp = (state)=>{
   return {
+		currentUser: state.session.currentUser,
+		balance: state.session.currentUser.balance
 	}
 }
 
@@ -13,4 +15,4 @@ const mdp = (dispatch) => {
 	};
 };
 
-export default connect(null, mdp)(Portfolio);
+export default connect(msp, mdp)(Portfolio);
