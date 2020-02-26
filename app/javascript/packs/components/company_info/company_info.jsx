@@ -44,11 +44,12 @@ class CompanyInfo extends React.Component{
       price: price,
       ticker: ticker
     }
-    debugger
+    
     if (balance < subTotal) {
       this.setState({ errors: "Insufficient liquid assets"})
     } else if (quantity > 0) {
       this.props.makeTrade(trade);
+      this.props.changeBalance((-1 * subTotal));
     } else {
       this.setState({ errors: "Please enter a quantity of 1 or more"})
     }

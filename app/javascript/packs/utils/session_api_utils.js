@@ -5,6 +5,19 @@ export const createUser = (user) =>
 		data: { user }
 	});
 
+export const fetchUser = (userId) =>
+	$.ajax({
+		method: 'GET',
+		url: `/api/users/${userId}`
+	});
+
+export const changeBalance = (user) =>
+	$.ajax({
+		method: 'POST',
+		url: '/api/users',
+		data: { user }
+	});
+
 export const createSession = (user) =>
 	$.ajax({
 		method: 'POST',

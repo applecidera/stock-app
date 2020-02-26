@@ -1,6 +1,6 @@
 
 @trades.each do |trade|
-  json.set! trade.purchase_date do
+  json.set! trade.id do
     json.partial! 'trade', trade: trade
   end
 end

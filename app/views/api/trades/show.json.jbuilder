@@ -1,3 +1,3 @@
-json.set! trade.purchas_date do
-  json.partial! 'trade', trade: trade
+json.set! @trade.id do
+  json.partial! 'trade', trade: @trade
 end
