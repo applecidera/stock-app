@@ -135,16 +135,17 @@ $base-color-light: #69e2ff;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .networth{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
   animation: phase-in 1s ease forwards;
+}
+.transactions-title-bar{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .stock-container{

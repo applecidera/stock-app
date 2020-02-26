@@ -14,7 +14,7 @@ class StockTable extends React.Component{
 
     return (
       <div className="stock-table-container">
-        <div className="networth"><span>Portfolio</span><span>Net Worth: ${netWorth}</span></div>
+        <div className="stock-table-title-bar"><span>Portfolio</span><span>Net Worth: ${netWorth}</span></div>
         <div className="stock-container">
           <ul>
             <li className="portfolio-stock-elements" key='top-line'><label>Stock</label><span>Quantity</span><span>Entry Price</span></li>

@@ -1,6 +1,7 @@
 $base-color: #00b0ff;
 $base-color-dark: #0081cb;
 $base-color-light: #69e2ff;
+
 @keyframes phase-in{
   from  {opacity: 0;}
   to    {opacity: 1;}
@@ -50,16 +51,17 @@ $base-color-light: #69e2ff;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .networth{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
   animation: phase-in 1s ease forwards;
+}
+
+.stock-table-title-bar{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .transaction-elements-container{
