@@ -3,7 +3,7 @@ class Api::TradesController < ApplicationController
   def create
     @trade = Trade.new(trade_params)
     @trade.purchase_date = Date.new
-    @post.user_id = current_user.id
+    @trade.user_id = current_user.id
     if @trade.save
       render 'api/trades/show'
     else
