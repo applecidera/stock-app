@@ -12,15 +12,22 @@ class CompanyInfo extends React.Component{
 
   handleInput(type) {
 		return (e) => {
+      (e.target.value > 0) ?
 			this.setState({
 				[type]: e.target.value
+      }) : 
+      this.setState({
+				[type]: 0
 			});
 		};
 	}
 
   handleSubmit(e){
     e.preventDefault();
-    console.log('handling it boss');
+    let quantity = this.state.quantity
+    (quantity > 0) ?
+    console.log('handling it boss') : 
+    console.log("can't buy 0 stocks")
   }
 
   render() {

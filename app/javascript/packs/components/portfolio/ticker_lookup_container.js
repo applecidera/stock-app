@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TickerLookup from './ticker_lookup';
-import { fetchTicker } from '../../actions/ticker_actions'
+import { fetchTicker, watchTicker } from '../../actions/ticker_actions'
 
 const msp = (state)=>{
   return {
@@ -9,7 +9,8 @@ const msp = (state)=>{
 
 const mdp = (dispatch) => {
 	return {
-    lookupTicker: (ticker) => dispatch(fetchTicker(ticker))
+		lookupTicker: (ticker) => dispatch(fetchTicker(ticker)),
+		watchTicker: (ticker) => dispatch(watchTicker(ticker))
 	};
 };
 

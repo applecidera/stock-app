@@ -16,6 +16,7 @@ class TickerLookup extends React.Component{
       this.state.errors = "Please Enter a Company's Ticker Symbol";
     } else {
       this.props.lookupTicker(this.state.queryString);
+      this.props.watchTicker(this.state.queryString);
     }
     // TODO parse queryString and choose first match
   }
