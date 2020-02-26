@@ -11,6 +11,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    if @user
+      render :show
+    else
+      render json: ["User does not exist"], status: 404
+    end
+  end
+
   def update
     @user = User.find(params[:id])
     new_balance = @user.balance + user_params['balance']

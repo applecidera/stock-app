@@ -8,6 +8,7 @@ class Navbar extends React.Component{
 
   componentDidMount(){
     this.props.fetchAllTrades();
+    this.props.fetchUser(this.props.userId);
   }
 
   render() {

@@ -13,8 +13,10 @@ class StockTable extends React.Component{
 
   componentDidUpdate(prevProps, prevState, snapshot){
     if (this.netWorth() !== this.state.netWorth){
-      debugger;
       this.setState({netWorth: this.netWorth()})
+    }
+    if (Object.values(this.props.trades).length !== this.state.transactions.length){
+      this.setState({transactions: Object.values(this.props.trades)})
     }
   }
 
@@ -73,7 +75,7 @@ class StockTable extends React.Component{
         <div className="stock-table-title-bar"><span>Portfolio</span><span>Net Worth: ${numberWithCommas(netWorth.toFixed(2))}</span></div>
         <div className="stock-container">
           <ul>
-            <li className="portfolio-stock-elements" key='top-line'><label>Stock</label><span>Quantity</span><span>Entry Price</span></li>
+            <li className="portfolio-stock-elements" key='top-line'><label>Stock</label><span>Quantity</span><span>Value</span></li>
             {trades}
           </ul>
         </div>
