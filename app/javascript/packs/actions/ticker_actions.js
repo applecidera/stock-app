@@ -19,9 +19,15 @@ export const clearTicker = () => ({
 })
 
 export const fetchTicker = (ticker) => (dispatch) => {
-  lookupTicker(ticker).then( (tickerData) => dispatch(receiveTicker(tickerData)))
+  return lookupTicker(ticker).then( 
+    (tickerData) => dispatch(receiveTicker(tickerData)),
+    (error) => console.log(error)
+  )
 }
 
 export const watchTicker = (ticker) => (dispatch) => {
-  lookupTicker(ticker).then( (tickerData) => dispatch(addTicker(tickerData)))
+  return lookupTicker(ticker).then( 
+    (tickerData) => dispatch(addTicker(tickerData)),
+    (error) => console.log(error)
+  )
 }

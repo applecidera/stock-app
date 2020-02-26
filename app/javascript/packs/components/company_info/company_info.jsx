@@ -20,7 +20,7 @@ class CompanyInfo extends React.Component{
 			this.setState({
         quantity: parseInt(e.target.value),
         price: currentPrice,
-        subTotal: (parseInt(e.target.value) * currentPrice),
+        subTotal: (parseFloat(e.target.value) * currentPrice),
         errors: null
       }) : 
       this.setState({
@@ -64,9 +64,9 @@ class CompanyInfo extends React.Component{
 
     let tickerData = this.props.tickerData;
     let color = ((tickerData['change'] > 0) ? 'green' : 'red') || 'grey';
-    let rawCurrentPrice = parseInt(tickerData['latestPrice']);
+    let rawCurrentPrice = parseFloat(tickerData['latestPrice']);
     let currentPrice = numberWithCommas(tickerData['latestPrice'].toFixed(2));
-    let subTotal = (this.state.quantity > 0) ? numberWithCommas((parseInt(this.state.quantity) * tickerData['latestPrice']).toFixed(2)) : 0.00;
+    let subTotal = (this.state.quantity > 0) ? numberWithCommas((parseFloat(this.state.quantity) * tickerData['latestPrice']).toFixed(2)) : 0.00;
     let percentChange = (tickerData['changePercent'] * 100).toFixed(2);
 
     let purchaseOption = this.props.purchaseOption ? (

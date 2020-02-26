@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_051554) do
   create_table "trades", force: :cascade do |t|
     t.datetime "purchase_date", null: false
     t.integer "quantity", null: false
-    t.integer "price", null: false
+    t.decimal "price", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_051554) do
     t.string "session_token", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "balance"
+    t.decimal "balance"
     t.index ["email", "id"], name: "index_users_on_email_and_id"
   end
 

@@ -83,4 +83,25 @@ $base-color-light: #69e2ff;
   font-weight: bold;
   font-size: 18px;
   margin-left: 0;
+  label{
+    width: 100px;
+  }
+  span{
+    width: 100px;
+  }
+}
+
+.transaction-trade-elements{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 0;
+  label{
+    width: 100px;
+  }
+  span{
+    width: 100px;
+  }
 }

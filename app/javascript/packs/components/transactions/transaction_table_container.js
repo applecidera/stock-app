@@ -3,6 +3,7 @@ import TransactionTable from './transaction_table';
 
 const msp = (state)=>{
   return {
+		trades: state.entities.trades
 	}
 }
 
@@ -11,4 +12,4 @@ const mdp = (dispatch) => {
 	};
 };
 
-export default connect(null, null)(TransactionTable);
+export default connect(msp, null)(TransactionTable);

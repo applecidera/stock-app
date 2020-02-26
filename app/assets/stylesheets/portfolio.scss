@@ -168,6 +168,12 @@ $base-color-light: #69e2ff;
   font-weight: bold;
   font-size: 18px;
   margin-left: 0;
+  label{
+    width: 100px;
+  }
+  span{
+    width: 100px;
+  }
 }
 
 .company-ticker-errors{
@@ -180,4 +186,19 @@ $base-color-light: #69e2ff;
 @keyframes error{
   from{}
   to{}
+}
+
+.portfolio-trade-elements{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 0;
+  label{
+    width: 100px;
+  }
+  span{
+    width: 100px;
+  }
 }

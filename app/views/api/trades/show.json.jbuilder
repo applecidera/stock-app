@@ -1,3 +1,1 @@
-json.set! @trade.id do
-  json.partial! 'trade', trade: @trade
-end
+json.extract! @trade, :purchase_date, :quantity, :price, :ticker, :id
