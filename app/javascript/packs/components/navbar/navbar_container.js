@@ -3,18 +3,22 @@ import Navbar from './navbar';
 import { deleteSession } from '../../actions/session_actions';
 import { fetchAllTrades } from '../../actions/trade_actions';
 import { fetchUser } from '../../actions/session_actions';
+import { watchTicker } from '../../actions/ticker_actions'
 
 const msp = (state, ownProps)=>{
   return {
-		userId: state.session.currentUser.id
+		userId: state.session.currentUser.id,
+		trades: Object.values(state.entities.trades),
+		watched: state.entities.ticker
 	}
 }
 
 const mdp = (dispatch) => {
 	return {
 		logout: () => dispatch(deleteSession()),
-		fetchAllTrades: ()=>dispatch(fetchAllTrades()),
-		fetchUser: (userId) => dispatch(fetchUser(userId))
+		fetchUser: (userId) => dispatch(fetchUser(userId)),
+		fetchAllTrades: ()=> dispatch(fetchAllTrades()),
+		watchTicker: (ticker) => dispatch(watchTicker(ticker))
 	};
 };
 

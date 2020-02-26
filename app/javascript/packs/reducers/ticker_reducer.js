@@ -6,16 +6,13 @@ import {
 
 import {merge} from 'lodash'
 
-const _nullTicker = {
-	currentUser: null
-};
-
-const tickerReducer = (prevState = _nullTicker, action) => {
+const tickerReducer = (prevState = {}, action) => {
 	Object.freeze(prevState);
 	let newState = {};
 	switch (action.type) {
 		case RECEIVE_TICKER:
-			newState = { tickerData: action.tickerData };
+			newState = merge({}, prevState);
+			newState['tickerData'] = action.tickerData;
 			return newState;
 		case ADD_TICKER:
 			newState = merge({}, prevState);
@@ -26,13 +23,13 @@ const tickerReducer = (prevState = _nullTicker, action) => {
 			if (action.tickerData['change'] > 0){ color = 'green';} 
 			else if (action.tickerData['change'] < 0) { color = 'red';}
 			else { color = 'gray';}
-			data[symbol] = symbol;
+			data['ticker'] = symbol;
 			data['latestPrice'] = latestPrice;
 			data['color'] = color;
 			newState[symbol] = data;
 			return newState;
 		case CLEAR_TICKER:
-			return _nullTicker;
+			return {};
 		default:
 			return prevState;
 	}

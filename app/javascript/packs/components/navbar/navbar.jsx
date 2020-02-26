@@ -4,11 +4,27 @@ import {Link} from 'react-router-dom'
 class Navbar extends React.Component{
   constructor(props) {
     super(props);
+    this.state=({
+      trades: this.props.trades || [],
+      watched: this.props.watched
+    })
   }
 
   componentDidMount(){
-    this.props.fetchAllTrades();
     this.props.fetchUser(this.props.userId);
+    this.props.fetchAllTrades()
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot){
+    if (this.props.trades.length !== this.state.trades.length){
+      this.setState({ trades: this.props.trades});
+      this.props.trades.forEach( (trade) => {
+        let ticker = trade['ticker'];
+        if (!this.state.watched.ticker){
+          this.props.watchTicker(ticker);
+        }
+      })
+    }
   }
 
   render() {
