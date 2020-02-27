@@ -5,8 +5,7 @@ class Navbar extends React.Component{
   constructor(props) {
     super(props);
     this.state=({
-      trades: this.props.trades || [],
-      watched: this.props.watched
+      trades: this.props.trades || []
     })
   }
 
@@ -18,11 +17,13 @@ class Navbar extends React.Component{
   componentDidUpdate(prevProps, prevState, snapshot){
     if (this.props.trades.length !== this.state.trades.length){
       this.setState({ trades: this.props.trades});
+      let tickers = {};
       this.props.trades.forEach( (trade) => {
-        let ticker = trade['ticker'];
-        if (!this.state.watched.ticker){
-          this.props.watchTicker(ticker);
-        }
+        tickers[trade.ticker] = true;
+      })
+      // this.props.watchAllTickers(Object.keys(tickers).join(','));
+      Object.keys(tickers).forEach( (ticker) => {
+        this.props.watchTicker(ticker);
       })
     }
   }

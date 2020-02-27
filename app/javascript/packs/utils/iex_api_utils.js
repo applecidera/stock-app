@@ -1,12 +1,18 @@
-// test_api_token Tpk_4e10f36d9ac14853b555c3dec570d369
-// URL https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_4e10f36d9ac14853b555c3dec570d369 
+
+const iex_pub_token = "pk_653e82ffb8a441f0b1180685f0c9fd2f";
+const iex_test_token = "Tpk_4e10f36d9ac14853b555c3dec570d369";
 
 export const lookupTicker = (ticker) =>
 	$.ajax({
 		method: 'GET',
-		url: `https://sandbox.iexapis.com/stable/stock/${ticker}/quote?token=Tpk_4e10f36d9ac14853b555c3dec570d369`
+		url: `https://sandbox.iexapis.com/stable/stock/${ticker}/quote?token=${iex_test_token}`
   });
-  
+	
+export const lookupAllTickers = (tickers) =>
+	$.ajax({
+		method: 'GET',
+		url: `https://sandbox.iexapis.com/stable/stock/market/batch?symbols=${tickers}&types=quote&token=${iex_test_token}`
+  });
 
 // symbol: "IBM"
 // companyName: "International Business Machines Corp."

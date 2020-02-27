@@ -3,7 +3,7 @@ import Navbar from './navbar';
 import { deleteSession } from '../../actions/session_actions';
 import { fetchAllTrades } from '../../actions/trade_actions';
 import { fetchUser } from '../../actions/session_actions';
-import { watchTicker } from '../../actions/ticker_actions'
+import { watchTicker, watchAllTickers } from '../../actions/ticker_actions'
 
 const msp = (state, ownProps)=>{
   return {
@@ -18,7 +18,8 @@ const mdp = (dispatch) => {
 		logout: () => dispatch(deleteSession()),
 		fetchUser: (userId) => dispatch(fetchUser(userId)),
 		fetchAllTrades: ()=> dispatch(fetchAllTrades()),
-		watchTicker: (ticker) => dispatch(watchTicker(ticker))
+		watchTicker: (ticker) => dispatch(watchTicker(ticker)),
+		watchAllTickers: (tickers) => dispatch(watchAllTickers(tickers))
 	};
 };
 

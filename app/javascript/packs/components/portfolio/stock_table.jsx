@@ -22,12 +22,16 @@ class StockTable extends React.Component{
 
   netWorth(){
     let netWorth = 0;
+    let tickerData = this.props.ticker;
     // let stockHash = {};
     // let quantityHash = {};
 
     this.state.transactions.forEach( (trade)=> {
-      let price = trade.price;
+      let ticker = trade.ticker;
+      let price = tickerData[ticker] ? tickerData[ticker].latestPrice : 0;
       let quantity = trade.quantity;
+
+      if (price === 0){this.props.watchTicker(ticker)};
 
       // stockHash[trade.ticker] = (stockHash[trade.ticker]) ?
       // stockHash[trade.ticker] + (price*quantity) : 0 + (price*quantity);
@@ -43,18 +47,20 @@ class StockTable extends React.Component{
   
   render() {
     let netWorth = this.state.netWorth;
+    let tickerData = this.props.ticker;
     let stockHash = {};
     let quantityHash = {};
 
     this.state.transactions.forEach( (trade)=> {
-      let price = trade.price;
       let quantity = trade.quantity;
+      let ticker = trade.ticker;
+      let price = tickerData[ticker] ? tickerData[ticker].latestPrice : 0;
 
-      stockHash[trade.ticker] = (stockHash[trade.ticker]) ?
-      stockHash[trade.ticker] + (price*quantity) : 0 + (price*quantity);
+      stockHash[ticker] = (stockHash[ticker]) ?
+      stockHash[ticker] + (price*quantity) : 0 + (price*quantity);
 
-      quantityHash[trade.ticker] = (quantityHash[trade.ticker]) ?
-      quantityHash[trade.ticker] + (quantity) : 0 + (quantity);
+      quantityHash[ticker] = (quantityHash[ticker]) ?
+      quantityHash[ticker] + (quantity) : 0 + (quantity);
       
       // netWorth += (price*quantity);
     })
@@ -65,7 +71,15 @@ class StockTable extends React.Component{
     let trades = (transactions.length) ? (
       <>
         {transactions.map((ticker, i) => (
-          <li className="portfolio-trade-elements" key={`trade-${i}`}><label>{ticker}</label><span>{quantityHash[ticker]}</span><span>${numberWithCommas(stockHash[ticker].toFixed(2))}</span></li>
+          <li className="portfolio-trade-elements" key={`trade-${i}`}>
+            <label>{ticker}</label><span>{quantityHash[ticker]}</span>
+            {(this.props.ticker[ticker]) ? 
+            (<span className={tickerData[ticker].color}>
+              ${numberWithCommas(this.props.ticker[ticker].latestPrice.toFixed(2))}
+            </span>) :
+            (<span>$0.00</span>) }
+            <span>${numberWithCommas(stockHash[ticker].toFixed(2))}</span>
+          </li>
         ))}
       </>
     ) : null;
@@ -75,7 +89,7 @@ class StockTable extends React.Component{
         <div className="stock-table-title-bar"><span>Portfolio</span><span>Net Worth: ${numberWithCommas(netWorth.toFixed(2))}</span></div>
         <div className="stock-container">
           <ul>
-            <li className="portfolio-stock-elements" key='top-line'><label>Stock</label><span>Quantity</span><span>Value</span></li>
+            <li className="portfolio-stock-elements" key='top-line'><label>Stock</label><span>Quantity</span><span>Price</span><span>SubTotal</span></li>
             {trades}
           </ul>
         </div>
