@@ -24,12 +24,12 @@ class Navbar extends React.Component{
       })
       
       // TODO change to batch request
-      // this.props.watchAllTickers(Object.keys(tickers).join(','));
-      Object.keys(tickers).forEach( (ticker) => {
-        if (!this.props.watched[ticker]){
-          this.props.watchTicker(ticker);
-        }
-      })
+      this.props.watchAllTickers(Object.keys(tickers).join(','));
+      // Object.keys(tickers).forEach( (ticker) => {
+      //   if (!this.props.watched[ticker]){
+      //     this.props.watchTicker(ticker);
+      //   }
+      // })
     }
   }
 
