@@ -1,5 +1,7 @@
 class Api::TradesController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   def create
     @trade = Trade.new(trade_params)
     @trade.purchase_date = Date.new

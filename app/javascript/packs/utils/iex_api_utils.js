@@ -3,18 +3,21 @@ import $ from "jquery";
 const iex_pub_token = "pk_653e82ffb8a441f0b1180685f0c9fd2f";
 const iex_test_token = "Tpk_4e10f36d9ac14853b555c3dec570d369";
 
-export const lookupTicker = (ticker) =>
-	$.ajax({
+export const lookupTicker = (ticker) =>{
+	return $.ajax({
 		method: 'GET',
 		url: `https://sandbox.iexapis.com/stable/stock/${ticker}/quote?token=${iex_test_token}`
 		// url: `https://iexapis.com/stable/stock/${ticker}/quote?token=${iex_pub_token}`
-  });
+	});
+}
 	
-export const lookupAllTickers = (tickers) =>
-	$.ajax({
+export const lookupAllTickers = (tickers) =>{
+	debugger
+	return $.ajax({
 		method: 'GET',
 		url: `https://sandbox.iexapis.com/stable/stock/market/batch?symbols=${tickers}&types=quote&token=${iex_test_token}`
-  });
+	});
+}
 
 // symbol: "IBM"
 // companyName: "International Business Machines Corp."
