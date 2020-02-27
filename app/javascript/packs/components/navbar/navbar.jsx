@@ -11,7 +11,7 @@ class Navbar extends React.Component{
 
   componentDidMount(){
     this.props.fetchUser(this.props.userId);
-    this.props.fetchAllTrades()
+    this.props.fetchAllTrades(this.props.userId)
   }
 
   componentDidUpdate(prevProps, prevState, snapshot){
@@ -19,7 +19,8 @@ class Navbar extends React.Component{
       this.setState({ trades: this.props.trades});
       let tickers = {};
       this.props.trades.forEach( (trade) => {
-        tickers[trade.ticker] = true;
+        let ticker = trade.ticker.toLowerCase();
+        tickers[ticker] = true;
       })
       
       // TODO change to batch request

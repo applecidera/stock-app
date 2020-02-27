@@ -7,7 +7,7 @@ export const lookupTicker = (ticker) =>{
 	return $.ajax({
 		method: 'GET',
 		url: `https://sandbox.iexapis.com/stable/stock/${ticker}/quote?token=${iex_test_token}`
-		// url: `https://iexapis.com/stable/stock/${ticker}/quote?token=${iex_pub_token}`
+		// url: `https://cloud.iexapis.com/stable/stock/${ticker}/quote?token=${iex_pub_token}`
 	});
 }
 	
@@ -16,6 +16,7 @@ export const lookupAllTickers = (tickers) =>{
 	return $.ajax({
 		method: 'GET',
 		url: `https://sandbox.iexapis.com/stable/stock/market/batch?symbols=${tickers}&types=quote&token=${iex_test_token}`
+		// url: `https://cloud.iexapis.com/stable/stock/market/batch?symbols=${tickers}&types=quote&token=${iex_test_token}`
 	});
 }
 

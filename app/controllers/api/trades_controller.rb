@@ -1,7 +1,5 @@
 class Api::TradesController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
-
   def create
     @trade = Trade.new(trade_params)
     @trade.purchase_date = Date.new
@@ -23,7 +21,7 @@ class Api::TradesController < ApplicationController
   end
 
   def index
-    @trades = Trade.where(user_id: params[:id])
+    @trades = Trade.where(user_id: current_user.id)
   end
 
   private

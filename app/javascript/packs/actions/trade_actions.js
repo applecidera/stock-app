@@ -18,8 +18,8 @@ export const makeTrade = (trade) => (dispatch) => {
   .then( (trade) => dispatch(receiveTrade(trade)))
 }
 
-export const fetchAllTrades = (trade) => (dispatch) => {
-  TradeApiUtils.fetchAllTrades(trade)
+export const fetchAllTrades = (userId) => (dispatch) => {
+  TradeApiUtils.fetchAllTrades(userId)
   .then( (trades) => dispatch(receiveAllTrades(trades)))
 }
 
