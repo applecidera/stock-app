@@ -1,3 +1,4 @@
+import $ from "jquery";
 
 const iex_pub_token = "pk_653e82ffb8a441f0b1180685f0c9fd2f";
 const iex_test_token = "Tpk_4e10f36d9ac14853b555c3dec570d369";

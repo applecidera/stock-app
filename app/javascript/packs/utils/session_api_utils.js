@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 export const createUser = (user) =>
 	$.ajax({
 		method: 'POST',
