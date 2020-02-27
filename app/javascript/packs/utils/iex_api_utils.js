@@ -6,6 +6,7 @@ export const lookupTicker = (ticker) =>
 	$.ajax({
 		method: 'GET',
 		url: `https://sandbox.iexapis.com/stable/stock/${ticker}/quote?token=${iex_test_token}`
+		// url: `https://iexapis.com/stable/stock/${ticker}/quote?token=${iex_pub_token}`
   });
 	
 export const lookupAllTickers = (tickers) =>

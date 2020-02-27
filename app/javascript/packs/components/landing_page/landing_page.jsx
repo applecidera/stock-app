@@ -20,7 +20,7 @@ class LandingPage extends React.Component{
 
     let getStarted = (
       <div className='get-started'>
-        <p>some type of text goes here that explains what the application is supposed to do</p>
+        <p>Take control of your finances and investments, view and trade stocks</p>
         <h3>Join Today</h3>
         <button onClick={()=>this.setState({form: 'signup'})}>Sign Up</button>
         <button onClick={()=>this.setState({form: 'login'})}>Login</button>

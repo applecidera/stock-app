@@ -9,13 +9,13 @@ class Portfolio extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      liquid_assets: this.props.balance || 0
+      liquid_assets: parseFloat(this.props.balance) || 0
     }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot){
-    if (this.state.liquid_assets && (parseInt(this.props.balance) !== parseInt(this.state.liquid_assets))){
-      this.setState({ liquid_assets: this.props.balance});
+    if (this.state.liquid_assets && (parseFloat(this.props.balance) !== this.state.liquid_assets)){
+      this.setState({ liquid_assets: parseFloat(this.props.balance)});
     }
   }
 
