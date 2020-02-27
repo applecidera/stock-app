@@ -21,7 +21,7 @@ class Api::TradesController < ApplicationController
   end
 
   def index
-    @trades = Trade.includes(:user)
+    @trades = Trade.where(user_id: params[:id])
   end
 
   private

@@ -11,11 +11,11 @@ export const fetchUser = (userId) =>
 		url: `/api/users/${userId}`
 	});
 
-export const changeBalance = (user) =>
+export const makePurchase = (trade) =>
 	$.ajax({
-		method: 'POST',
-		url: '/api/users',
-		data: { user }
+		method: 'PATCH',
+		url: `/api/users/${trade.userId}`,
+		data: { trade }
 	});
 
 export const createSession = (user) =>

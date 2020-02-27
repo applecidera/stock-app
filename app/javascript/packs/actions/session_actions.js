@@ -49,3 +49,9 @@ export const createSession = (user) => (dispatch) =>
 
 export const deleteSession = () => (dispatch) =>
 	SessionApiUtils.deleteSession().then(() => dispatch(logoutCurrentUser()));
+
+export const makePurchase = (trade) => (dispatch) =>
+	SessionApiUtils.makePurchase(trade).then(
+		(user) => dispatch(receiveUser(user)),
+		(err) => dispatch(receiveSessionErrors(err.responseJSON))
+	);

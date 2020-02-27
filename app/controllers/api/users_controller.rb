@@ -22,8 +22,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    debugger
-    @user.purchase_stock(price, quantity)
+    new_balance = @user.purchase_stock(params['trade']['price'], params['trade']['quantity'])
     @user.balance = new_balance
     if (@user && @user.save)
       render :show
@@ -35,7 +34,7 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :email, :balance)
+    params.require(:user).permit(:name, :password, :email, :price, :quantity)
   end
 
 end

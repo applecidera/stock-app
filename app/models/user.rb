@@ -36,4 +36,11 @@ class User < ApplicationRecord
     user.is_password?(password) ? user : nil
   end
 
+  def purchase_stock(price, quantity)
+    if (price.to_d * quantity.to_d < self.balance)
+      balance = self.balance - (price.to_d * quantity.to_d)
+    end
+    return balance;
+  end
+
 end

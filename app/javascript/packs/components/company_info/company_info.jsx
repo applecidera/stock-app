@@ -8,10 +8,17 @@ class CompanyInfo extends React.Component{
       quantity: 0,
       price: null,
       subTotal: 0,
-      errors: null
+      errors: null,
+      balance: parseFloat(this.props.balance) || 0
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
+  }
+  
+  componentDidUpdate(prevProps, prevState, snapshot){
+    if (this.props.balance && (parseFloat(this.props.balance) !== this.state.balance)){
+      this.setState({ balance: parseFloat(this.props.balance)});
+    }
   }
 
   handleInput(currentPrice) {
@@ -35,21 +42,22 @@ class CompanyInfo extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     let quantity = this.state.quantity;
-    let balance = this.props.balance;
+    let balance = this.state.balance;
     let price = this.state.price;
     let subTotal = this.state.subTotal;
     let ticker = this.props.tickerData.symbol;
     let trade = {
       quantity: quantity,
       price: price,
-      ticker: ticker
+      ticker: ticker,
+      userId: this.props.userId
     }
     
     if (balance < subTotal) {
       this.setState({ errors: "Insufficient liquid assets"})
     } else if (quantity > 0) {
       this.props.makeTrade(trade);
-      this.props.changeBalance((-1 * subTotal));
+      this.props.makePurchase((trade));
     } else {
       this.setState({ errors: "Please enter a quantity of 1 or more"})
     }

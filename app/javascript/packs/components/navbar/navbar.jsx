@@ -21,9 +21,13 @@ class Navbar extends React.Component{
       this.props.trades.forEach( (trade) => {
         tickers[trade.ticker] = true;
       })
+      
+      // TODO change to batch request
       // this.props.watchAllTickers(Object.keys(tickers).join(','));
       Object.keys(tickers).forEach( (ticker) => {
-        this.props.watchTicker(ticker);
+        if (!this.props.watched[ticker]){
+          this.props.watchTicker(ticker);
+        }
       })
     }
   }
