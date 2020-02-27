@@ -12,7 +12,7 @@ class Portfolio extends React.Component{
       liquid_assets: parseFloat(this.props.balance) || 0
     }
   }
-
+  
   componentDidUpdate(prevProps, prevState, snapshot){
     if (this.props.balance && (parseFloat(this.props.balance) !== this.state.liquid_assets)){
       this.setState({ liquid_assets: parseFloat(this.props.balance)});

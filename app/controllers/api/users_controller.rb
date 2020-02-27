@@ -22,7 +22,8 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    new_balance = @user.balance + user_params['balance']
+    debugger
+    @user.purchase_stock(price, quantity)
     @user.balance = new_balance
     if (@user && @user.save)
       render :show
